@@ -56,22 +56,11 @@ router.post('/message/text/send', async (req, res) => {
     }
   };
 
-  const responses = await sessionClient.detectIntent({
-      session: sessionPath,
-      queryInput: {
-        text: {
-          text: `${message} ${tag}`,
-          languageCode: 'en',
-        },
-      },
-    });
-    return res.json({
-      text: response[0].queryResult?.fulfillmentText,
-    })
+  const responses = await sessionClient.detectIntent(request)
   console.log("Response....: " + JSON.stringify(responses));
   console.log("############################");
   
-//   res.send(responses)
+  res.send(responses[0])
 })
 
 router.post('/message/audio/send', upload.single('audioFile'), async (req, res) => {
