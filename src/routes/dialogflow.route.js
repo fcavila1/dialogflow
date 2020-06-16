@@ -60,7 +60,7 @@ router.post('/message/text/send', async (req, res) => {
   console.log("Response....: " + JSON.stringify(responses[0].queryResult.fulfillmentMessages[0].text));
   console.log("############################");
   
-  res.send(responses)
+  res.send(responses[0].queryResult.fulfillmentMessages[0].text)
 })
 
 router.post('/message/audio/send', upload.single('audioFile'), async (req, res) => {
