@@ -60,8 +60,8 @@ router.post('/message/text/send', async (req, res) => {
 
   console.log("Response....: " + JSON.stringify(responses));
   console.log("############################");
-  res.json({
-    text: response[0].queryResult.fulfillmentMessages
+  return res.json({
+    text: response[0].queryResult?.fulfillmentTexts
   })
 })
 
