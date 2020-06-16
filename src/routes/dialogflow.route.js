@@ -57,9 +57,10 @@ router.post('/message/text/send', async (req, res) => {
   };
 
   const responses = await sessionClient.detectIntent(request);
-
-//   console.log("Response....: " + JSON.stringify(responses));
-//   console.log("############################");
+  console.log("############################");
+  console.log("RESPOSTA");
+  console.log("Response....: " + JSON.stringify(responses));
+  console.log("############################");
   return res.json({
     text: responses[0].queryResult
   })
